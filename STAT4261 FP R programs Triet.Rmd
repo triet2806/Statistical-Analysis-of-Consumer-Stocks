@@ -1,0 +1,1868 @@
+---
+title: "Final Project"
+output: html_document
+date: "2023-04-16"
+---
+
+Descriptive Statistics
+```{r setup, include=FALSE}
+AMZ = Project_Data$Amazon
+WMT = Project_Data$Walmart
+HD = Project_Data$`Home Depot`
+TGT = Project_Data$Target
+COST = Project_Data$CostCo
+BBY = Project_Data$BestBuy
+LOW = Project_Data$Lowes
+EL = Project_Data$`Estee Lauder`
+ULTA = Project_Data$Ulta
+LVMH = Project_Data$LVMH
+KER = Project_Data$Kering 
+HM = Project_Data$`H&M`
+RICH = Project_Data$Richemont
+CAPR = Project_Data$Capri
+FR = Project_Data$`Fast Retailing` 
+  
+#Equity curve of the 15 stocks
+par(mfrow=c(4, 4))
+  
+b= MPORT_noNA$Returns
+result = rep(1,59)
+ini = 1
+for (i in 1:length(b)){
+    int = result[i]*(1+b[i])
+    result[i+1] = c(int)
+}
+a= AMZ
+resulta = rep(1,59)
+ini = 1
+for (i in 1:length(a)){
+    int = resulta[i]*(1+a[i])
+    resulta[i+1] = c(int)
+}
+plot(result, type = "l", main = 'Equity curve of Amazon', col= 'blue', ylim=c(0.9,6), xlab = "Time", ylab = 'Equity Value')
+lines(resulta, ylim=c(0.9,6))
+
+b= MPORT_noNA$Returns
+result = rep(1,59)
+ini = 1
+for (i in 1:length(b)){
+    int = result[i]*(1+b[i])
+    result[i+1] = c(int)
+}
+a= WMT
+resulta = rep(1,59)
+ini = 1
+for (i in 1:length(a)){
+    int = resulta[i]*(1+a[i])
+    resulta[i+1] = c(int)
+}
+plot(result, type = "l", main = 'Equity curve of Walmart', col= 'blue', ylim=c(0.6,1.65), xlab = "Time", ylab = 'Equity Value')
+lines(resulta, ylim=c(0.6,1.65))
+
+
+b= MPORT_noNA$Returns
+result = rep(1,59)
+ini = 1
+for (i in 1:length(b)){
+    int = result[i]*(1+b[i])
+    result[i+1] = c(int)
+}
+a= HD
+resulta = rep(1,59)
+ini = 1
+for (i in 1:length(a)){
+    int = resulta[i]*(1+a[i])
+    resulta[i+1] = c(int)
+}
+plot(result, type = "l", main = 'Equity curve of Home Depot', col= 'blue', ylim=c(0.9,2.6), xlab = "Time", ylab = 'Equity Value')
+lines(resulta, ylim=c(0.9,2.6))
+
+
+b= MPORT_noNA$Returns
+result = rep(1,59)
+ini = 1
+for (i in 1:length(b)){
+    int = result[i]*(1+b[i])
+    result[i+1] = c(int)
+}
+a= TGT
+resulta = rep(1,59)
+ini = 1
+for (i in 1:length(a)){
+    int = resulta[i]*(1+a[i])
+    resulta[i+1] = c(int)
+}
+plot(result, type = "l", main = 'Equity curve of Target', col= 'blue', ylim=c(0.75,2.1), xlab = "Time", ylab = 'Equity Value')
+lines(resulta, ylim=c(0.75,2.1))
+
+
+b= MPORT_noNA$Returns
+result = rep(1,59)
+ini = 1
+for (i in 1:length(b)){
+    int = result[i]*(1+b[i])
+    result[i+1] = c(int)
+}
+a= COST
+resulta = rep(1,59)
+ini = 1
+for (i in 1:length(a)){
+    int = resulta[i]*(1+a[i])
+    resulta[i+1] = c(int)
+}
+plot(result, type = "l", main = 'Equity curve of Target', col= 'blue', ylim=c(0.95,2.4), xlab = "Time", ylab = 'Equity Value')
+lines(resulta, ylim=c(0.95,2.4))
+
+
+b= MPORT_noNA$Returns
+result = rep(1,59)
+ini = 1
+for (i in 1:length(b)){
+    int = result[i]*(1+b[i])
+    result[i+1] = c(int)
+}
+a= BBY
+resulta = rep(1,59)
+ini = 1
+for (i in 1:length(a)){
+    int = resulta[i]*(1+a[i])
+    resulta[i+1] = c(int)
+}
+plot(result, type = "l", main = 'Equity curve of BestBuy', col= 'blue', ylim=c(0.85,3), xlab = "Time", ylab = 'Equity Value')
+lines(resulta, ylim=c(0.85,3))
+
+
+b= MPORT_noNA$Returns
+result = rep(1,59)
+ini = 1
+for (i in 1:length(b)){
+    int = result[i]*(1+b[i])
+    result[i+1] = c(int)
+}
+a= LOW
+resulta = rep(1,59)
+ini = 1
+for (i in 1:length(a)){
+    int = resulta[i]*(1+a[i])
+    resulta[i+1] = c(int)
+}
+plot(result, type = "l", main = 'Equity curve of Lowes', col= 'blue', ylim=c(0.95,2), xlab = "Time", ylab = 'Equity Value')
+lines(resulta, ylim=c(0.95,2))
+
+
+b= MPORT_noNA$Returns
+result = rep(1,59)
+ini = 1
+for (i in 1:length(b)){
+    int = result[i]*(1+b[i])
+    result[i+1] = c(int)
+}
+a= EL
+resulta = rep(1,59)
+ini = 1
+for (i in 1:length(a)){
+    int = resulta[i]*(1+a[i])
+    resulta[i+1] = c(int)
+}
+plot(result, type = "l", main = 'Equity curve of Estee Lauder', col= 'blue', ylim=c(0.95,3.1), xlab = "Time", ylab = 'Equity Value')
+lines(resulta, ylim=c(0.95,3.1))
+
+
+b= MPORT_noNA$Returns
+result = rep(1,59)
+ini = 1
+for (i in 1:length(b)){
+    int = result[i]*(1+b[i])
+    result[i+1] = c(int)
+}
+a= ULTA
+resulta = rep(1,59)
+ini = 1
+for (i in 1:length(a)){
+    int = resulta[i]*(1+a[i])
+    resulta[i+1] = c(int)
+}
+plot(result, type = "l", main = 'Equity curve of Ulta Beauty', col= 'blue', ylim=c(0.95,2.6), xlab = "Time", ylab = 'Equity Value')
+lines(resulta, ylim=c(0.95,2.6))
+
+b= MPORT_noNA$Returns
+result = rep(1,59)
+ini = 1
+for (i in 1:length(b)){
+    int = result[i]*(1+b[i])
+    result[i+1] = c(int)
+}
+a= LVMH
+resulta = rep(1,59)
+ini = 1
+for (i in 1:length(a)){
+    int = resulta[i]*(1+a[i])
+    resulta[i+1] = c(int)
+}
+plot(result, type = "l", main = 'Equity curve of LVMH', col= 'blue', ylim=c(0.95,3.5), xlab = "Time", ylab = 'Equity Value')
+lines(resulta, ylim=c(0.95,3.5))
+
+b= MPORT_noNA$Returns
+result = rep(1,59)
+ini = 1
+for (i in 1:length(b)){
+    int = result[i]*(1+b[i])
+    result[i+1] = c(int)
+}
+a= KER
+resulta = rep(1,59)
+ini = 1
+for (i in 1:length(a)){
+    int = resulta[i]*(1+a[i])
+    resulta[i+1] = c(int)
+}
+plot(result, type = "l", main = 'Equity curve of Kering', col= 'blue', ylim=c(0.9,4), xlab = "Time", ylab = 'Equity Value')
+lines(resulta, ylim=c(0.9,4))
+
+b= MPORT_noNA$Returns
+result = rep(1,59)
+ini = 1
+for (i in 1:length(b)){
+    int = result[i]*(1+b[i])
+    result[i+1] = c(int)
+}
+a= HM
+resulta = rep(1,59)
+ini = 1
+for (i in 1:length(a)){
+    int = resulta[i]*(1+a[i])
+    resulta[i+1] = c(int)
+}
+plot(result, type = "l", main = 'Equity curve of H&M', col= 'blue', ylim=c(0.4,1.6), xlab = "Time", ylab = 'Equity Value')
+lines(resulta, ylim=c(0.4,1.6))
+
+b= MPORT_noNA$Returns
+result = rep(1,59)
+ini = 1
+for (i in 1:length(b)){
+    int = result[i]*(1+b[i])
+    result[i+1] = c(int)
+}
+a= RICH
+resulta = rep(1,59)
+ini = 1
+for (i in 1:length(a)){
+    int = resulta[i]*(1+a[i])
+    resulta[i+1] = c(int)
+}
+plot(result, type = "l", main = 'Equity curve of Richemont', col= 'blue', ylim=c(0.7,1.6), xlab = "Time", ylab = 'Equity Value')
+lines(resulta, ylim=c(0.7,1.6))
+
+
+b= MPORT_noNA$Returns
+result = rep(1,59)
+ini = 1
+for (i in 1:length(b)){
+    int = result[i]*(1+b[i])
+    result[i+1] = c(int)
+}
+a= CAPR
+resulta = rep(1,59)
+ini = 1
+for (i in 1:length(a)){
+    int = resulta[i]*(1+a[i])
+    resulta[i+1] = c(int)
+}
+plot(result, type = "l", main = 'Equity curve of Capri Holdings', col= 'blue', ylim=c(0.35,1.6), xlab = "Time", ylab = 'Equity Value')
+lines(resulta, ylim=c(0.35,1.6))
+
+
+b= MPORT_noNA$Returns
+result = rep(1,59)
+ini = 1
+for (i in 1:length(b)){
+    int = result[i]*(1+b[i])
+    result[i+1] = c(int)
+}
+a= FR
+resulta = rep(1,59)
+ini = 1
+for (i in 1:length(a)){
+    int = resulta[i]*(1+a[i])
+    resulta[i+1] = c(int)
+}
+plot(result, type = "l", main = 'Equity curve of Fast Retailing', col= 'blue', ylim=c(0.6,1.6), xlab = "Time", ylab = 'Equity Value')
+lines(resulta, ylim=c(0.6,1.6))
+
+b= MPORT_noNA$Returns
+result = rep(1,59)
+ini = 1
+for (i in 1:length(b)){
+    int = result[i]*(1+b[i])
+    result[i+1] = c(int)
+}
+plot.ts(result, main = 'Equity curve of S&P500', col= 'blue')
+
+
+
+library(matrixStats)
+colMeans(Project_Data)
+
+sd(AMZ)*sqrt(12)
+sd(LVMH)*sqrt(12)
+sd(ULTA)*sqrt(12)
+sd(EL)*sqrt(12)
+sd(LOW)*sqrt(12)
+sd(BBY)*sqrt(12)
+sd(COST)*sqrt(12)
+sd(TGT)*sqrt(12)
+sd(HD)*sqrt(12)
+sd(WMT)*sqrt(12)
+sd(KER)*sqrt(12)
+sd(HM)*sqrt(12)
+sd(RICH)*sqrt(12)
+sd(FR)*sqrt(12)
+sd(CAPR)*sqrt(12)
+
+library(dplyr)
+mean(MPORT_noNA$Returns)*12
+sd(MPORT_noNA$Returns)*sqrt(12)
+```
+
+Fitting Distributions
+```{r setup, include=FALSE}
+library(ggplot2)
+fit_densities <- function(x) {
+  #function to fit fifteen densities to `x`. Calculates aic/bic values and
+  #returns list of qq plots for each fitted density.
+  n <- length(x)
+  
+  #fit t
+  start <- c(mean(x), sd(x), 5)
+  loglik_t <- function(beta) {
+    sum(-dt((x - beta[1]) / beta[2], beta[3], log = TRUE) + log(beta[2]))
+  }
+  fit_t <- optim(
+      start, loglik_t, hessian = T, method = "L-BFGS-B",
+      lower = c(-0.1, 0.01, 2.1)
+  )
+  results_t <- list(
+      par = fit_t$par,
+      sd = sqrt(diag(solve(fit_t$hessian)))
+  )
+  df_t <- data.frame(
+      dist = "t",
+      AIC = 2 * fit_t$value + 2 * 3,
+      BIC = 2 * fit_t$value + log(n) * 3
+  )
+  
+  #fit norm
+  start <- c(mean(x), sd(x))
+  loglik_norm <- function(beta) {
+      sum(-dnorm(x, beta[1], beta[2], log = TRUE))
+  }
+  fit_norm <- optim(
+      start, loglik_norm, hessian = T, method = "L-BFGS-B",
+      lower = c(-1, 0.001)
+  )
+  results_norm <- list(
+      par = fit_norm$par,
+      sd = sqrt(diag(solve(fit_norm$hessian)))
+  )
+  df_norm <- data.frame(
+      dist = "norm",
+      AIC = 2 * fit_norm$value + 2 * 2,
+      BIC = 2 * fit_norm$value + log(n) * 2
+  )
+  
+  #fit ged
+  start <- c(mean(x), sd(x), 1)
+  loglik_ged <- function(beta) {
+      sum(-dged(x, beta[1], beta[2], beta[3], log = TRUE))
+  }
+  fit_ged <- optim(
+      start, loglik_ged, hessian = T, method = "L-BFGS-B",
+      lower = c(-0.1, 0.01, 1)
+  )
+  results_ged <- list(
+      par = fit_ged$par,
+      sd = sqrt(diag(solve(fit_ged$hessian)))
+  )
+  df_ged <- data.frame(
+      dist = "ged",
+      AIC = 2 * fit_ged$value + 2 * 3,
+      BIC = 2 * fit_ged$value + log(n) * 3
+  )
+  
+  myqt <- function(p) {
+      qt(p = p, df = results_t$par[3]) * results_t$par[2] + results_t$par[1]
+  }
+  
+  myqnorm <- function(p) {
+      qnorm(p, results_norm$par[1], results_norm$par[2])
+  }
+  
+  myqged <- function(p) {
+      qged(p, results_ged$par[1], results_ged$par[2], results_ged$par[3])
+  }
+  
+  qq_plot_list <- lapply(
+      list("t" = myqt, "norm" = myqnorm, "ged" = myqged), function(distr) {
+        ggplot(data.frame(x = x), aes(sample = x)) +
+          stat_qq(distribution = distr) +
+          stat_qq_line(distribution = distr)
+      }
+  )
+  
+  list(
+        "results" = list(
+            "t" = results_t, "norm" = results_norm, "ged" = results_ged
+        ),
+        "aicbic" = rbind(df_t, df_norm, df_ged),
+        "qq_plot_list" = qq_plot_list
+  )
+}
+
+fit_list <- lapply(Project_Data, fit_densities)
+
+fit_densities(AMZ)
+fit_densities(WMT)
+fit_densities(HD)
+fit_densities(TGT)
+fit_densities(COST)
+fit_densities(BBY)
+fit_densities(LOW)
+fit_densities(EL)
+fit_densities(ULTA)
+fit_densities(LVMH)
+fit_densities(KER)
+fit_densities(HM)
+fit_densities(RICH)
+fit_densities(CAPR)
+fit_densities(FR)
+
+
+library(MASS)
+
+#Normal
+library(fGarch)
+library(fitdistrplus)
+normalAMZ[["aic"]]
+normalWMT = fitdist(WMT, "norm")
+normalHD = fitdist(HD, "norm")
+normalCOST = fitdist(COST, "norm")
+normalLOW = fitdist(LOW, "norm")
+normalLVMH = fitdist(LVMH, "norm")
+
+#Fit a skewed Gaussian or skewed t-distribution/ standardized t-distribution
+library(fGarch)
+tfit <- sstdFit(AMZ, hessian = TRUE)
+tfit
+plot(density(AMZ))
+res <- fitdistr(AMZ, 't') #ask about the other way
+res
+
+tfit <- fitdistr(AMZ, 't')
+tfit
+tfit <- fitdistr(TGT, 't')
+tfit
+tfit <- fitdistr(ULTA, 't')
+tfit
+tfit <- fitdistr(HM, 't')
+tfit
+
+tfit <- sstdFit(AMZ, hessian = TRUE)
+tfit
+tfit <- sstdFit(TGT, hessian = TRUE)
+tfit
+tfit <- sstdFit(ULTA, hessian = TRUE)
+tfit
+tfit <- sstdFit(HM, hessian = TRUE)
+tfit
+
+
+```
+
+
+Portfolio Theory
+
+CAPM for each asset
+```{r setup, include=FALSE}
+mufree <- .0094 / 12
+
+newMPORT <- MPORT_noNA$Returns - mufree
+newAMZ <- Project_Data$Amazon - mufree
+newWMT <- Project_Data$Walmart - mufree
+newHD <- Project_Data$`Home Depot` - mufree
+newTGT <- Project_Data$Target - mufree
+newCOST <- Project_Data$CostCo - mufree
+newBBY <- Project_Data$BestBuy - mufree
+newLOW <- Project_Data$Lowes - mufree
+newEL <- Project_Data$`Estee Lauder` - mufree
+newULTA <- Project_Data$Ulta - mufree
+newLVMH <- Project_Data$LVMH - mufree
+newKER <- Project_Data$Kering - mufree
+newHM <- Project_Data$`H&M` - mufree
+newRICH <- Project_Data$Richemont - mufree
+newCAPR <- Project_Data$Capri - mufree
+newFR <- Project_Data$`Fast Retailing` - mufree 
+
+capm.AMZ = lm(newAMZ ~ newMPORT)
+summary(capm.AMZ)
+
+capm.WMT = lm(newWMT ~ newMPORT)
+summary(capm.WMT)
+
+capm.HD = lm(newHD ~ newMPORT)
+summary(capm.HD)
+
+capm.TGT = lm(newTGT ~ newMPORT)
+summary(capm.TGT)
+
+capm.COST = lm(newCOST ~ newMPORT)
+summary(capm.COST)
+
+capm.BBY = lm(newBBY ~ newMPORT)
+summary(capm.BBY)
+
+capm.LOW = lm(newLOW ~ newMPORT)
+summary(capm.LOW)
+
+capm.EL = lm(newEL ~ newMPORT)
+summary(capm.EL)
+
+capm.ULTA = lm(newULTA ~ newMPORT)
+summary(capm.ULTA)
+
+capm.LVMH = lm(newLVMH ~ newMPORT)
+summary(capm.LVMH)
+
+capm.KER = lm(newKER ~ newMPORT)
+summary(capm.KER)
+
+capm.HM = lm(newHM ~ newMPORT)
+summary(capm.HM)
+
+capm.RICH = lm(newRICH ~ newMPORT)
+summary(capm.RICH)
+
+capm.CAPR = lm(newCAPR ~ newMPORT)
+summary(capm.CAPR)
+
+capm.FR = lm(newFR ~ newMPORT)
+summary(capm.FR)
+```
+
+
+Portfolio Theory and Asset Allocation
+
+for Tangency Portfolio and Minimum Variance Portfolio
+Short sale is allowed
+```{r setup, include=FALSE}
+options(digits = 2)
+n <- dim(Project_Data)[1]
+mean_vect = colMeans(Project_Data)
+cov_mat = cov(Project_Data)
+sd_vect = sqrt(diag(cov_mat))
+num_assets <-length(mean_vect)
+library(quadprog)
+Amat = cbind(rep(1,num_assets), mean_vect) # set the constraints matrix
+muP <- seq(0.01, 0.03, length=300) # target portfolio means
+sdP <- muP # set up storage for std dev's of portfolio returns 
+weights <- matrix(0, nrow = 300, ncol = num_assets) # storage for weights 
+  for (i in 1:length(muP)) # find the optimal portfolios
+    {
+      bvec <- c(1, muP[i]) # constraint vector
+      result <- solve.QP(
+          Dmat = 2 * cov_mat, dvec = rep(0, num_assets), Amat = Amat,
+          bvec = bvec, meq = 2)
+      sdP[i] <- sqrt(result$value)
+      weights[i, ] <- result$solution
+}
+mufree <- .0094 / 12
+sharpe <- (muP - mufree) / sdP # compute Sharpe's ratios
+ind <- (sharpe == max(sharpe)) # Find maximum Sharpe's ratio
+ind2 <- (sdP == min(sdP)) # Find minimum variance portfolio
+ind3 <- (muP > muP[ind2]) 
+weights[ind, ] # print the weights of the tangency portfolio
+weights[ind2, ] # print the weights of the minimum variance portfolio
+
+mean_vect_tan = crossprod(mean_vect,weights[ind, ]) # Monthly mean of Tangency
+mean_vect_MVP = crossprod(mean_vect,weights[ind2, ]) # Monthly mean of MVP
+
+sig2_tan = t(weights[ind, ])%*%cov_mat%*%weights[ind, ]
+sig_tan = sqrt(sig2_tan) # Monthly risk of Tangency
+sig2_MVP = t(weights[ind2, ])%*%cov_mat%*%weights[ind2, ]
+sig_MVP = sqrt(sig2_MVP) # Monthly risk of MVP
+
+12*mean_vect_tan # Tangency Portfolio's mean
+sig_tan*sqrt(12) # Tangency Portfolio's risk
+sharpe_tan = (12*(mean_vect_tan)-0.0094)/(sig_tan*sqrt(12))
+
+12*mean_vect_MVP #MVP mean
+sig_MVP*sqrt(12) #MVP risk
+sharpe_MVP = (12*(mean_vect_MVP)-0.0094)/(sig_MVP*sqrt(12))
+
+par(mfrow=c(1,1))
+plot(sdP,muP,type="l",xlim=c(0,0.15),ylim=c(-0.01,.05))
+points(0,mufree,cex=3,col="blue",pch="*")
+           lines(c(0,sdP[ind]),c(mufree,muP[ind]),col="red",lwd=3)
+           points(sdP[ind],muP[ind],col="blue",cex=3,pch="*")
+           points(sdP[ind2],muP[ind2],col="green",cex=3,pch="*")
+           lines(sdP[ind3],muP[ind3],type="l",xlim=c(0,.25),
+              ylim=c(0,.3),col="cyan",lwd=3)
+           text(sd_vect[1],mean_vect[1],"AMZ")
+           text(sd_vect[2],mean_vect[2],"WMT")
+           text(sd_vect[3],mean_vect[3],"HD")
+           text(sd_vect[4],mean_vect[4],"TGT")
+           text(sd_vect[5],mean_vect[5],"COST")
+           text(sd_vect[6],mean_vect[6],"BBY")
+           text(sd_vect[7],mean_vect[7],"LOW")
+           text(sd_vect[8],mean_vect[8],"EL")
+           text(sd_vect[9],mean_vect[9],"ULTA")
+           text(sd_vect[10],mean_vect[10],"LVMH")
+           text(sd_vect[11],mean_vect[11],"KER")
+           text(sd_vect[12],mean_vect[12],"HM")
+           text(sd_vect[13],mean_vect[13],"RICH")
+           text(sd_vect[14],mean_vect[14],"CAPR")
+           text(sd_vect[15],mean_vect[15],"FR")
+           legend("topright",c("efficient frontier","efficient portfolios",
+                  "tangency portfolio","min var portfolio"),
+                  lty=c(1,1,NA,NA),
+                  lwd=c(3,3,1,1),
+                  pch=c("","","*","*"),
+           col=c("cyan","red","blue","green"),
+           pt.cex=c(1,1,3,3)
+           )
+           
+#Asset Allocation Portfolio 
+x.t.60 = (0.6 - 0.0094)/(12*mean_vect_tan - 0.0094) # Weight in Tangency Portfolio
+x.t.60 # Weight in Tangency Portfolio
+1- x.t.60 # Weight in T-Bill
+x.t.60*weights[ind, ] # Weights in the Risky Asset 
+
+mu.t.60 = x.t.60*12*mean_vect_tan + (1-x.t.60)*(0.0094)
+mu.t.60
+
+sig.t.60 = x.t.60*sig_tan*sqrt(12)
+sig.t.60
+
+sharpe_tan = (mu.t.60-0.0094)/sig.t.60
+sharpe_tan
+
+x.mvp.60 = (0.6 - 0.0094)/(12*mean_vect_MVP - 0.0094) # Weight in MVP Portfolio
+x.mvp.60 # Weight in MVP Portfolio
+1- x.mvp.60 # Weight in T-Bill
+x.mvp.60*weights[ind2, ] # Weights in the Risky Asset 
+
+mu.mvp.60 = x.mvp.60*12*mean_vect_MVP + (1-x.mvp.60)*(0.0094)
+mu.mvp.60
+
+sig.mvp.60 = x.mvp.60*sig_MVP*sqrt(12)
+sig.mvp.60
+
+sharpe_tan = (mu.mvp.60-0.0094)/sig.mvp.60
+
+#ES and VaR for Tangency portfolio of Risk-free and Risky Assets
+newAMZ<-Project_Data$Amazon*x.t.60*weights[ind, 1]
+newWMT<-Project_Data$Walmart*x.t.60*weights[ind, 2]
+newHD<-Project_Data$`Home Depot`*x.t.60*weights[ind, 3]
+newTGT<-Project_Data$Target*x.t.60*weights[ind, 4]
+newCOST<-Project_Data$CostCo*x.t.60*weights[ind, 5]
+newBBY<-Project_Data$BestBuy*x.t.60*weights[ind, 6]
+newLOW<-Project_Data$Lowes*x.t.60*weights[ind, 7]
+newEL<-Project_Data$`Estee Lauder`*x.t.60*weights[ind, 8]
+newULTA<-Project_Data$Ulta*x.t.60*weights[ind, 9]
+newLVMH<-Project_Data$LVMH*x.t.60*weights[ind, 10]
+newKER<-Project_Data$Kering*x.t.60*weights[ind, 11]
+newHM<-Project_Data$`H&M`*x.t.60*weights[ind, 12]
+newRICH<-Project_Data$Richemont*x.t.60*weights[ind, 13]
+newCAPR<-Project_Data$Capri*x.t.60*weights[ind, 14]
+newFR<-Project_Data$`Fast Retailing`*x.t.60*weights[ind, 15]
+
+portfolio_return <- cbind(newAMZ,newWMT,newHD,newTGT,newCOST,newBBY,newLOW,newEL,newULTA,newLVMH,newKER,newHM,newRICH,newCAPR,newFR)
+portfolio_return_vector <- rowSums(portfolio_return)
+
+
+#Finding the nonparametric VaR and ES of portfolio
+alpha <- 0.05  
+q <- as.numeric(quantile(portfolio_return_vector, alpha))
+VaR_nonp <- -100000 * q
+IEVaR <- (portfolio_return_vector < q)
+sum(IEVaR)
+ES_nonp <- -100000 * sum(portfolio_return_vector * IEVaR) / sum(IEVaR)
+options(digits = 5)
+VaR_nonp
+ES_nonp
+
+#Bootstrap CI and Standard Errors for Portfolio
+B = 5000
+VaRs=matrix(0,nrow=B,ncol=2)
+for (i in (1:B))
+{
+  returns_b = sample(portfolio_return_vector,1000,replace=TRUE)
+  q_b = as.numeric(quantile(returns_b,.05))
+  VaR_nonp_b = -100000*q_b
+  IEVaR_b = (returns_b < q_b)
+  ES_nonp_b = -100000 * sum(returns_b*IEVaR_b) / sum(IEVaR_b)
+  
+
+  VaRs[i,]=c(VaR_nonp_b,ES_nonp_b)
+}
+
+#confidence interval 1 is var 2 is ES
+quantile(VaRs[,1],c(.025,.975))
+quantile(VaRs[,2],c(.025,.975))
+
+#standard error
+sd(VaRs[,1])
+sd(VaRs[,2])
+
+
+#ES and VaR for MVP
+#Calculating the vector of returns based on this weight
+newAMZ<-Project_Data$Amazon*weights[ind2, 1]
+newWMT<-Project_Data$Walmart*weights[ind2, 2]
+newHD<-Project_Data$`Home Depot`*weights[ind2, 3]
+newTGT<-Project_Data$Target*weights[ind2, 4]
+newCOST<-Project_Data$CostCo*weights[ind2, 5]
+newBBY<-Project_Data$BestBuy*weights[ind2, 6]
+newLOW<-Project_Data$Lowes*weights[ind2, 7]
+newEL<-Project_Data$`Estee Lauder`*weights[ind2, 8]
+newULTA<-Project_Data$Ulta*weights[ind2, 9]
+newLVMH<-Project_Data$LVMH*weights[ind2, 10]
+newKER<-Project_Data$Kering*weights[ind2, 11]
+newHM<-Project_Data$`H&M`*weights[ind2, 12]
+newRICH<-Project_Data$Richemont*weights[ind2, 13]
+newCAPR<-Project_Data$Capri*weights[ind2, 14]
+newFR<-Project_Data$`Fast Retailing`*weights[ind2, 15]
+
+portfolio_return <- cbind(newAMZ,newWMT,newHD,newTGT,newCOST,newBBY,newLOW,newEL,newULTA,newLVMH,newKER,newHM,newRICH,newCAPR,newFR)
+portfolio_return_vector <- rowSums(portfolio_return)
+
+
+#Finding the nonparametric VaR and ES of MVP
+alpha <- 0.05  
+q <- as.numeric(quantile(portfolio_return_vector, alpha))
+VaR_nonp <- -100000 * q
+IEVaR <- (portfolio_return_vector < q)
+sum(IEVaR)
+ES_nonp <- -100000 * sum(portfolio_return_vector * IEVaR) / sum(IEVaR)
+options(digits = 5)
+VaR_nonp
+ES_nonp
+
+#Bootstrap CI and Standard Errors for Portfolio
+B = 5000
+VaRs=matrix(0,nrow=B,ncol=2)
+for (i in (1:B))
+{
+  returns_b = sample(portfolio_return_vector,1000,replace=TRUE)
+  q_b = as.numeric(quantile(returns_b,.05))
+  VaR_nonp_b = -100000*q_b
+  IEVaR_b = (returns_b < q_b)
+  ES_nonp_b = -100000 * sum(returns_b*IEVaR_b) / sum(IEVaR_b)
+  
+
+  VaRs[i,]=c(VaR_nonp_b,ES_nonp_b)
+}
+
+#confidence interval 1 is var 2 is ES
+quantile(VaRs[,1],c(.025,.975))
+quantile(VaRs[,2],c(.025,.975))
+
+#standard error
+sd(VaRs[,1])
+sd(VaRs[,2])
+
+
+#ES and VaR for Tangency Portfolio
+           
+#Calculating the vector of returns based on this weight
+newAMZ<-Project_Data$Amazon*weights[ind, 1]
+newWMT<-Project_Data$Walmart*weights[ind, 2]
+newHD<-Project_Data$`Home Depot`*weights[ind, 3]
+newTGT<-Project_Data$Target*weights[ind, 4]
+newCOST<-Project_Data$CostCo*weights[ind, 5]
+newBBY<-Project_Data$BestBuy*weights[ind, 6]
+newLOW<-Project_Data$Lowes*weights[ind, 7]
+newEL<-Project_Data$`Estee Lauder`*weights[ind, 8]
+newULTA<-Project_Data$Ulta*weights[ind, 9]
+newLVMH<-Project_Data$LVMH*weights[ind, 10]
+newKER<-Project_Data$Kering*weights[ind, 11]
+newHM<-Project_Data$`H&M`*weights[ind, 12]
+newRICH<-Project_Data$Richemont*weights[ind, 13]
+newCAPR<-Project_Data$Capri*weights[ind, 14]
+newFR<-Project_Data$`Fast Retailing`*weights[ind, 15]
+
+portfolio_return <- cbind(newAMZ,newWMT,newHD,newTGT,newCOST,newBBY,newLOW,newEL,newULTA,newLVMH,newKER,newHM,newRICH,newCAPR,newFR)
+portfolio_return_vector <- rowSums(portfolio_return)
+
+
+#Finding the nonparametric VaR and ES of the tangency portfolio
+alpha <- 0.05  
+q <- as.numeric(quantile(portfolio_return_vector, alpha))
+VaR_nonp <- -100000 * q
+IEVaR <- (portfolio_return_vector < q)
+sum(IEVaR)
+ES_nonp <- -100000 * sum(portfolio_return_vector * IEVaR) / sum(IEVaR)
+options(digits = 5)
+VaR_nonp
+ES_nonp
+
+#Bootstrap CI and Standard Errors for Portfolio
+B = 5000
+VaRs=matrix(0,nrow=B,ncol=2)
+for (i in (1:B))
+{
+  returns_b = sample(portfolio_return_vector,1000,replace=TRUE)
+  q_b = as.numeric(quantile(returns_b,.05))
+  VaR_nonp_b = -100000*q_b
+  IEVaR_b = (returns_b < q_b)
+  ES_nonp_b = -100000 * sum(returns_b*IEVaR_b) / sum(IEVaR_b)
+  
+
+  VaRs[i,]=c(VaR_nonp_b,ES_nonp_b)
+}
+
+#confidence interval 1 is var 2 is ES
+quantile(VaRs[,1],c(.025,.975))
+quantile(VaRs[,2],c(.025,.975))
+
+#standard error
+sd(VaRs[,1])
+sd(VaRs[,2])
+
+
+```
+
+Now, the above codes are modified so that short sales are not allowed. When short sales are prohibited, the target expected return on the portfolio must lie between the smallest and largest expected returns on the stocks. To prevent numerical errors, the targeted expected returns will start 0.0001 above the smallest expected stock return and end 0.0001 below the largest expected stock return. 
+
+```{r setup, include=FALSE}
+options(digits = 2)
+options(scipen = 999)
+n <- dim(Project_Data)[1]
+mean_vect = colMeans(Project_Data)
+cov_mat = cov(Project_Data)
+sd_vect = sqrt(diag(cov_mat))
+num_assets <-length(mean_vect)
+library(quadprog)
+Amat = cbind(rep(1,num_assets), mean_vect, diag(1, nrow = num_assets)) # set the constraints matrix
+muP <- seq(min(mean_vect) + 0.0001, max(mean_vect) - 0.0001, length=300) # target portfolio means
+sdP <- muP # set up storage for std dev's of portfolio returns 
+weights <- matrix(0, nrow = 300, ncol = num_assets) # storage for weights 
+  for (i in seq_along(muP)) # find the optimal portfolios
+    {
+      bvec <- c(1, muP[i], rep(0, num_assets)) # constraint vector
+      result <- solve.QP(
+          Dmat = 2 * cov_mat, dvec = rep(0, num_assets), Amat = Amat,
+          bvec = bvec,
+          meq = 2,
+      )
+      sdP[i] <- sqrt(result$value)
+      weights[i, ] <- result$solution
+}
+mufree <- .0094 / 12
+sharpe <- (muP - mufree) / sdP
+ind <- (sharpe == max(sharpe))
+ind2 <- (sdP == min(sdP))
+ind3 <- (muP > muP[ind2])
+weights[ind, ] # print the weights of the tangency portfolio
+weights[ind2, ] # print the weights of the minimum variance portfolio
+
+mean_vect_tan = crossprod(mean_vect,weights[ind, ]) # Monthly mean of Tangency
+mean_vect_MVP = crossprod(mean_vect,weights[ind2, ]) # Monthly mean of MVP
+
+sig2_tan = t(weights[ind, ])%*%cov_mat%*%weights[ind, ]
+sig_tan = sqrt(sig2_tan) # Monthly risk of Tangency
+sig2_MVP = t(weights[ind2, ])%*%cov_mat%*%weights[ind2, ]
+sig_MVP = sqrt(sig2_MVP) # Monthly risk of MVP
+
+12*mean_vect_tan # Tangency Portfolio's mean
+sig_tan*sqrt(12) # Tangency Portfolio's risk
+sharpe_tan = (12*(mean_vect_tan)-0.0094)/(sig_tan*sqrt(12))
+
+options(digits=4)
+12*mean_vect_MVP #MVP mean
+sig_MVP*sqrt(12) #MVP risk
+options(digits=4)
+sharpe_MVP = (12*(mean_vect_MVP)-0.0094)/(sig_MVP*sqrt(12))
+
+par(mfrow=c(1,1))
+plot(sdP,muP,type="l",xlim=c(0,0.15),ylim=c(-0.01,.05))
+points(0,mufree,cex=3,col="blue",pch="*")
+           lines(c(0,sdP[ind]),c(mufree,muP[ind]),col="red",lwd=3)
+           points(sdP[ind],muP[ind],col="blue",cex=3,pch="*")
+           points(sdP[ind2],muP[ind2],col="green",cex=3,pch="*")
+           lines(sdP[ind3],muP[ind3],type="l",xlim=c(0,.25),
+              ylim=c(0,.3),col="cyan",lwd=3)
+           text(sd_vect[1],mean_vect[1],"AMZ")
+           text(sd_vect[2],mean_vect[2],"WMT")
+           text(sd_vect[3],mean_vect[3],"HD")
+           text(sd_vect[4],mean_vect[4],"TGT")
+           text(sd_vect[5],mean_vect[5],"COST")
+           text(sd_vect[6],mean_vect[6],"BBY")
+           text(sd_vect[7],mean_vect[7],"LOW")
+           text(sd_vect[8],mean_vect[8],"EL")
+           text(sd_vect[9],mean_vect[9],"ULTA")
+           text(sd_vect[10],mean_vect[10],"LVMH")
+           text(sd_vect[11],mean_vect[11],"KER")
+           text(sd_vect[12],mean_vect[12],"HM")
+           text(sd_vect[13],mean_vect[13],"RICH")
+           text(sd_vect[14],mean_vect[14],"CAPR")
+           text(sd_vect[15],mean_vect[15],"FR")
+           legend("topright",c("efficient frontier","efficient portfolios",
+                  "tangency portfolio","min var portfolio"),
+                  lty=c(1,1,NA,NA),
+                  lwd=c(3,3,1,1),
+                  pch=c("","","*","*"),
+           col=c("cyan","red","blue","green"),
+           pt.cex=c(1,1,3,3)
+           )
+
+#Asset Allocation Portfolio 
+x.t.60 = (0.6 - 0.0094)/(12*mean_vect_tan - 0.0094) # Weight in Tangency Portfolio
+x.t.60 # Weight in Tangency Portfolio
+1- x.t.60 # Weight in T-Bill
+x.t.60*weights[ind, ] # Weights in the Risky Asset 
+
+mu.t.60 = x.t.60*12*mean_vect_tan + (1-x.t.60)*(0.0094)
+mu.t.60
+
+sig.t.60 = x.t.60*sig_tan*sqrt(12)
+sig.t.60
+
+sharpe_tan = (mu.t.60-0.0094)/sig.t.60
+sharpe_tan
+
+x.mvp.60 = (0.6 - 0.0094)/(12*mean_vect_MVP - 0.0094) # Weight in MVP Portfolio
+x.mvp.60 # Weight in MVP Portfolio
+1- x.mvp.60 # Weight in T-Bill
+x.mvp.60*weights[ind2, ] # Weights in the Risky Asset 
+
+mu.mvp.60 = x.mvp.60*12*mean_vect_MVP + (1-x.mvp.60)*(0.0094)
+mu.mvp.60
+
+sig.mvp.60 = x.mvp.60*sig_MVP*sqrt(12)
+sig.mvp.60
+
+sharpe_tan = (mu.mvp.60-0.0094)/sig.mvp.60
+
+#ES and VaR for Tangency portfolio of Risk-free and Risky Assets
+newAMZ<-Project_Data$Amazon*x.t.60*weights[ind, 1]
+newWMT<-Project_Data$Walmart*x.t.60*weights[ind, 2]
+newHD<-Project_Data$`Home Depot`*x.t.60*weights[ind, 3]
+newTGT<-Project_Data$Target*x.t.60*weights[ind, 4]
+newCOST<-Project_Data$CostCo*x.t.60*weights[ind, 5]
+newBBY<-Project_Data$BestBuy*x.t.60*weights[ind, 6]
+newLOW<-Project_Data$Lowes*x.t.60*weights[ind, 7]
+newEL<-Project_Data$`Estee Lauder`*x.t.60*weights[ind, 8]
+newULTA<-Project_Data$Ulta*x.t.60*weights[ind, 9]
+newLVMH<-Project_Data$LVMH*x.t.60*weights[ind, 10]
+newKER<-Project_Data$Kering*x.t.60*weights[ind, 11]
+newHM<-Project_Data$`H&M`*x.t.60*weights[ind, 12]
+newRICH<-Project_Data$Richemont*x.t.60*weights[ind, 13]
+newCAPR<-Project_Data$Capri*x.t.60*weights[ind, 14]
+newFR<-Project_Data$`Fast Retailing`*x.t.60*weights[ind, 15]
+
+portfolio_return <- cbind(newAMZ,newWMT,newHD,newTGT,newCOST,newBBY,newLOW,newEL,newULTA,newLVMH,newKER,newHM,newRICH,newCAPR,newFR)
+portfolio_return_vector <- rowSums(portfolio_return)
+
+
+#Finding the nonparametric VaR and ES of portfolio
+alpha <- 0.05  
+q <- as.numeric(quantile(portfolio_return_vector, alpha))
+VaR_nonp <- -100000 * q
+IEVaR <- (portfolio_return_vector < q)
+sum(IEVaR)
+ES_nonp <- -100000 * sum(portfolio_return_vector * IEVaR) / sum(IEVaR)
+options(digits = 5)
+VaR_nonp
+ES_nonp
+
+#Bootstrap CI and Standard Errors for Portfolio
+B = 5000
+VaRs=matrix(0,nrow=B,ncol=2)
+for (i in (1:B))
+{
+  returns_b = sample(portfolio_return_vector,1000,replace=TRUE)
+  q_b = as.numeric(quantile(returns_b,.05))
+  VaR_nonp_b = -100000*q_b
+  IEVaR_b = (returns_b < q_b)
+  ES_nonp_b = -100000 * sum(returns_b*IEVaR_b) / sum(IEVaR_b)
+  
+
+  VaRs[i,]=c(VaR_nonp_b,ES_nonp_b)
+}
+
+#confidence interval 1 is var 2 is ES
+quantile(VaRs[,1],c(.025,.975))
+quantile(VaRs[,2],c(.025,.975))
+
+#standard error
+sd(VaRs[,1])
+sd(VaRs[,2])
+
+
+#ES and VaR for MVP
+#Calculating the vector of returns based on this weight
+newAMZ<-Project_Data$Amazon*weights[ind2, 1]
+newWMT<-Project_Data$Walmart*weights[ind2, 2]
+newHD<-Project_Data$`Home Depot`*weights[ind2, 3]
+newTGT<-Project_Data$Target*weights[ind2, 4]
+newCOST<-Project_Data$CostCo*weights[ind2, 5]
+newBBY<-Project_Data$BestBuy*weights[ind2, 6]
+newLOW<-Project_Data$Lowes*weights[ind2, 7]
+newEL<-Project_Data$`Estee Lauder`*weights[ind2, 8]
+newULTA<-Project_Data$Ulta*weights[ind2, 9]
+newLVMH<-Project_Data$LVMH*weights[ind2, 10]
+newKER<-Project_Data$Kering*weights[ind2, 11]
+newHM<-Project_Data$`H&M`*weights[ind2, 12]
+newRICH<-Project_Data$Richemont*weights[ind2, 13]
+newCAPR<-Project_Data$Capri*weights[ind2, 14]
+newFR<-Project_Data$`Fast Retailing`*weights[ind2, 15]
+
+portfolio_return <- cbind(newAMZ,newWMT,newHD,newTGT,newCOST,newBBY,newLOW,newEL,newULTA,newLVMH,newKER,newHM,newRICH,newCAPR,newFR)
+portfolio_return_vector <- rowSums(portfolio_return)
+
+
+#Finding the nonparametric VaR and ES of MVP
+alpha <- 0.05  
+q <- as.numeric(quantile(portfolio_return_vector, alpha))
+VaR_nonp <- -100000 * q
+IEVaR <- (portfolio_return_vector < q)
+sum(IEVaR)
+ES_nonp <- -100000 * sum(portfolio_return_vector * IEVaR) / sum(IEVaR)
+options(digits = 5)
+VaR_nonp
+ES_nonp
+
+#Bootstrap CI and Standard Errors for Portfolio
+B = 5000
+VaRs=matrix(0,nrow=B,ncol=2)
+for (i in (1:B))
+{
+  returns_b = sample(portfolio_return_vector,1000,replace=TRUE)
+  q_b = as.numeric(quantile(returns_b,.05))
+  VaR_nonp_b = -100000*q_b
+  IEVaR_b = (returns_b < q_b)
+  ES_nonp_b = -100000 * sum(returns_b*IEVaR_b) / sum(IEVaR_b)
+  
+
+  VaRs[i,]=c(VaR_nonp_b,ES_nonp_b)
+}
+
+#confidence interval 1 is var 2 is ES
+quantile(VaRs[,1],c(.025,.975))
+quantile(VaRs[,2],c(.025,.975))
+
+#standard error
+sd(VaRs[,1])
+sd(VaRs[,2])
+
+#ES and VaR for Tangency Portfolio
+           
+#Calculating the vector of returns based on this weight
+newAMZ<-Project_Data$Amazon*weights[ind, 1]
+newWMT<-Project_Data$Walmart*weights[ind, 2]
+newHD<-Project_Data$`Home Depot`*weights[ind, 3]
+newTGT<-Project_Data$Target*weights[ind, 4]
+newCOST<-Project_Data$CostCo*weights[ind, 5]
+newBBY<-Project_Data$BestBuy*weights[ind, 6]
+newLOW<-Project_Data$Lowes*weights[ind, 7]
+newEL<-Project_Data$`Estee Lauder`*weights[ind, 8]
+newULTA<-Project_Data$Ulta*weights[ind, 9]
+newLVMH<-Project_Data$LVMH*weights[ind, 10]
+newKER<-Project_Data$Kering*weights[ind, 11]
+newHM<-Project_Data$`H&M`*weights[ind, 12]
+newRICH<-Project_Data$Richemont*weights[ind, 13]
+newCAPR<-Project_Data$Capri*weights[ind, 14]
+newFR<-Project_Data$`Fast Retailing`*weights[ind, 15]
+
+portfolio_return <- cbind(newAMZ,newWMT,newHD,newTGT,newCOST,newBBY,newLOW,newEL,newULTA,newLVMH,newKER,newHM,newRICH,newCAPR,newFR)
+portfolio_return_vector <- rowSums(portfolio_return)
+
+
+#Finding the nonparametric VaR and ES of the tangency portfolio
+alpha <- 0.05  
+q <- as.numeric(quantile(portfolio_return_vector, alpha))
+VaR_nonp <- -100000 * q
+IEVaR <- (portfolio_return_vector < q)
+sum(IEVaR)
+ES_nonp <- -100000 * sum(portfolio_return_vector * IEVaR) / sum(IEVaR)
+options(digits = 5)
+VaR_nonp
+ES_nonp
+
+#Bootstrap CI and Standard Errors for Portfolio
+B = 5000
+VaRs=matrix(0,nrow=B,ncol=2)
+for (i in (1:B))
+{
+  returns_b = sample(portfolio_return_vector,1000,replace=TRUE)
+  q_b = as.numeric(quantile(returns_b,.05))
+  VaR_nonp_b = -100000*q_b
+  IEVaR_b = (returns_b < q_b)
+  ES_nonp_b = -100000 * sum(returns_b*IEVaR_b) / sum(IEVaR_b)
+  
+
+  VaRs[i,]=c(VaR_nonp_b,ES_nonp_b)
+}
+
+#confidence interval 1 is var 2 is ES
+quantile(VaRs[,1],c(.025,.975))
+quantile(VaRs[,2],c(.025,.975))
+
+#standard error
+sd(VaRs[,1])
+sd(VaRs[,2])
+
+```
+
+Now we want to impose more tailored unique constraints, that is -0.3 < wj < 0.3 for each stock. The constraint prohibits more than 30% of the investment in any single stock, long or short. Then, the weights of the tangency portfolio is as follows: 
+```{r setup, include=FALSE}
+
+n <- dim(Project_Data)[1]
+mean_vect = colMeans(Project_Data)
+cov_mat = cov(Project_Data)
+sd_vect = sqrt(diag(cov_mat))
+num_assets <-length(mean_vect)
+library(quadprog)
+Amat = cbind(rep(1,num_assets), mean_vect, diag(1, nrow = num_assets), -diag(1, nrow = num_assets)) # set the constraints matrix
+muP <- seq(min(mean_vect) + 0.0001, max(mean_vect) - 0.0001, length=300) # target portfolio means
+sdP <- muP # set up storage for std dev's of portfolio returns 
+weights <- matrix(0, nrow = 300, ncol = num_assets) # storage for weights 
+  for (i in 1:length(muP))
+     {
+      result =
+      solve.QP(Dmat=cov_mat,dvec=rep(0,num_assets), Amat=Amat,
+      c(1,muP[i],rep(-.3,num_assets),rep(-.3,num_assets)), meq=2)
+      sdP[i] = sqrt(2*result$value)
+      weights[i,] = result$solution
+  }
+
+mufree <- .0094 / 12
+sharpe <- (muP - mufree) / sdP
+ind <- (sharpe == max(sharpe))
+ind2 <- (sdP == min(sdP))
+ind3 <- (muP > muP[ind2])
+weights[ind, ] # print the weights of the tangency portfolio
+weights[ind2, ] # print the weights of the minimum variance portfolio
+
+mean_vect_tan = crossprod(mean_vect,weights[ind, ]) # Monthly mean of Tangency
+mean_vect_MVP = crossprod(mean_vect,weights[ind2, ]) # Monthly mean of MVP
+
+sig2_tan = t(weights[ind, ])%*%cov_mat%*%weights[ind, ]
+sig_tan = sqrt(sig2_tan) # Monthly risk of Tangency
+sig2_MVP = t(weights[ind2, ])%*%cov_mat%*%weights[ind2, ]
+sig_MVP = sqrt(sig2_MVP) # Monthly risk of MVP
+
+12*mean_vect_tan # Tangency Portfolio's mean
+sig_tan*sqrt(12) # Tangency Portfolio's risk
+sharpe_tan = (12*(mean_vect_tan)-0.0094)/(sig_tan*sqrt(12))
+
+options(digits=4)
+12*mean_vect_MVP #MVP mean
+sig_MVP*sqrt(12) #MVP risk
+sharpe_MVP = (12*(mean_vect_MVP)-0.0094)/(sig_MVP*sqrt(12))
+
+plot(sdP,muP,type="l",xlim=c(0,0.15),ylim=c(-.02,.05))
+points(0,mufree,cex=3,col="blue",pch="*")
+           lines(c(0,sdP[ind]),c(mufree,muP[ind]),col="red",lwd=3)
+           points(sdP[ind],muP[ind],col="blue",cex=3,pch="*")
+           points(sdP[ind2],muP[ind2],col="green",cex=3,pch="*")
+           lines(sdP[ind3],muP[ind3],type="l",xlim=c(0,.25),
+              ylim=c(0,.3),col="cyan",lwd=3)
+           text(sd_vect[1],mean_vect[1],"AMZ")
+           text(sd_vect[2],mean_vect[2],"WMT")
+           text(sd_vect[3],mean_vect[3],"HD")
+           text(sd_vect[4],mean_vect[4],"TGT")
+           text(sd_vect[5],mean_vect[5],"COST")
+           text(sd_vect[6],mean_vect[6],"BBY")
+           text(sd_vect[7],mean_vect[7],"LOW")
+           text(sd_vect[8],mean_vect[8],"EL")
+           text(sd_vect[9],mean_vect[9],"ULTA")
+           text(sd_vect[10],mean_vect[10],"LVMH")
+           text(sd_vect[11],mean_vect[11],"KER")
+           text(sd_vect[12],mean_vect[12],"HM")
+           text(sd_vect[13],mean_vect[13],"RICH")
+           text(sd_vect[14],mean_vect[14],"CAPR")
+           text(sd_vect[15],mean_vect[15],"FR")
+           legend("topright",c("efficient frontier","efficient portfolios",
+                  "tangency portfolio","min var portfolio"),
+                  lty=c(1,1,NA,NA),
+                  lwd=c(3,3,1,1),
+                  pch=c("","","*","*"),
+           col=c("cyan","red","blue","green"),
+           pt.cex=c(1,1,3,3)
+           )
+
+#Asset Allocation Portfolio         
+x.t.60 = (0.6 - 0.0094)/(12*mean_vect_tan - 0.0094) # Weight in Tangency Portfolio
+x.t.60 # Weight in Tangency Portfolio
+1- x.t.60 # Weight in T-Bill
+x.t.60*weights[ind, ] # Weights in the Risky Asset 
+
+mu.t.60 = x.t.60*12*mean_vect_tan + (1-x.t.60)*(0.0094)
+mu.t.60
+
+sig.t.60 = x.t.60*sig_tan*sqrt(12)
+sig.t.60
+
+sharpe_tan = (mu.t.60-0.0094)/sig.t.60
+sharpe_tan
+
+x.mvp.60 = (0.6 - 0.0094)/(12*mean_vect_MVP - 0.0094) # Weight in MVP Portfolio
+x.mvp.60 # Weight in MVP Portfolio
+1- x.mvp.60 # Weight in T-Bill
+x.mvp.60*weights[ind2, ] # Weights in the Risky Asset 
+
+mu.mvp.60 = x.mvp.60*12*mean_vect_MVP + (1-x.mvp.60)*(0.0094)
+mu.mvp.60
+
+sig.mvp.60 = x.mvp.60*sig_MVP*sqrt(12)
+sig.mvp.60
+
+sharpe_tan = (mu.mvp.60-0.0094)/sig.mvp.60
+
+#ES and VaR for Tangency portfolio of Risk-free and Risky Assets
+newAMZ<-Project_Data$Amazon*x.t.60*weights[ind, 1]
+newWMT<-Project_Data$Walmart*x.t.60*weights[ind, 2]
+newHD<-Project_Data$`Home Depot`*x.t.60*weights[ind, 3]
+newTGT<-Project_Data$Target*x.t.60*weights[ind, 4]
+newCOST<-Project_Data$CostCo*x.t.60*weights[ind, 5]
+newBBY<-Project_Data$BestBuy*x.t.60*weights[ind, 6]
+newLOW<-Project_Data$Lowes*x.t.60*weights[ind, 7]
+newEL<-Project_Data$`Estee Lauder`*x.t.60*weights[ind, 8]
+newULTA<-Project_Data$Ulta*x.t.60*weights[ind, 9]
+newLVMH<-Project_Data$LVMH*x.t.60*weights[ind, 10]
+newKER<-Project_Data$Kering*x.t.60*weights[ind, 11]
+newHM<-Project_Data$`H&M`*x.t.60*weights[ind, 12]
+newRICH<-Project_Data$Richemont*x.t.60*weights[ind, 13]
+newCAPR<-Project_Data$Capri*x.t.60*weights[ind, 14]
+newFR<-Project_Data$`Fast Retailing`*x.t.60*weights[ind, 15]
+
+portfolio_return <- cbind(newAMZ,newWMT,newHD,newTGT,newCOST,newBBY,newLOW,newEL,newULTA,newLVMH,newKER,newHM,newRICH,newCAPR,newFR)
+portfolio_return_vector <- rowSums(portfolio_return)
+
+
+#Finding the nonparametric VaR and ES of portfolio
+alpha <- 0.05  
+q <- as.numeric(quantile(portfolio_return_vector, alpha))
+VaR_nonp <- -100000 * q
+IEVaR <- (portfolio_return_vector < q)
+sum(IEVaR)
+ES_nonp <- -100000 * sum(portfolio_return_vector * IEVaR) / sum(IEVaR)
+options(digits = 5)
+VaR_nonp
+ES_nonp
+
+#Bootstrap CI and Standard Errors for Portfolio
+B = 5000
+VaRs=matrix(0,nrow=B,ncol=2)
+for (i in (1:B))
+{
+  returns_b = sample(portfolio_return_vector,1000,replace=TRUE)
+  q_b = as.numeric(quantile(returns_b,.05))
+  VaR_nonp_b = -100000*q_b
+  IEVaR_b = (returns_b < q_b)
+  ES_nonp_b = -100000 * sum(returns_b*IEVaR_b) / sum(IEVaR_b)
+  
+
+  VaRs[i,]=c(VaR_nonp_b,ES_nonp_b)
+}
+
+#confidence interval 1 is var 2 is ES
+quantile(VaRs[,1],c(.025,.975))
+quantile(VaRs[,2],c(.025,.975))
+
+#standard error
+sd(VaRs[,1])
+sd(VaRs[,2])
+
+
+#ES and VaR for MVP
+#Calculating the vector of returns based on this weight
+newAMZ<-Project_Data$Amazon*weights[ind2, 1]
+newWMT<-Project_Data$Walmart*weights[ind2, 2]
+newHD<-Project_Data$`Home Depot`*weights[ind2, 3]
+newTGT<-Project_Data$Target*weights[ind2, 4]
+newCOST<-Project_Data$CostCo*weights[ind2, 5]
+newBBY<-Project_Data$BestBuy*weights[ind2, 6]
+newLOW<-Project_Data$Lowes*weights[ind2, 7]
+newEL<-Project_Data$`Estee Lauder`*weights[ind2, 8]
+newULTA<-Project_Data$Ulta*weights[ind2, 9]
+newLVMH<-Project_Data$LVMH*weights[ind2, 10]
+newKER<-Project_Data$Kering*weights[ind2, 11]
+newHM<-Project_Data$`H&M`*weights[ind2, 12]
+newRICH<-Project_Data$Richemont*weights[ind2, 13]
+newCAPR<-Project_Data$Capri*weights[ind2, 14]
+newFR<-Project_Data$`Fast Retailing`*weights[ind2, 15]
+
+portfolio_return <- cbind(newAMZ,newWMT,newHD,newTGT,newCOST,newBBY,newLOW,newEL,newULTA,newLVMH,newKER,newHM,newRICH,newCAPR,newFR)
+portfolio_return_vector <- rowSums(portfolio_return)
+
+
+#Finding the nonparametric VaR and ES of MVP
+alpha <- 0.05  
+q <- as.numeric(quantile(portfolio_return_vector, alpha))
+VaR_nonp <- -100000 * q
+IEVaR <- (portfolio_return_vector < q)
+sum(IEVaR)
+ES_nonp <- -100000 * sum(portfolio_return_vector * IEVaR) / sum(IEVaR)
+options(digits = 5)
+VaR_nonp
+ES_nonp
+
+
+#Bootstrap CI and Standard Errors for Portfolio
+B = 5000
+VaRs=matrix(0,nrow=B,ncol=2)
+for (i in (1:B))
+{
+  returns_b = sample(portfolio_return_vector,1000,replace=TRUE)
+  q_b = as.numeric(quantile(returns_b,.05))
+  VaR_nonp_b = -100000*q_b
+  IEVaR_b = (returns_b < q_b)
+  ES_nonp_b = -100000 * sum(returns_b*IEVaR_b) / sum(IEVaR_b)
+  
+
+  VaRs[i,]=c(VaR_nonp_b,ES_nonp_b)
+}
+
+#confidence interval 1 is var 2 is ES
+quantile(VaRs[,1],c(.025,.975))
+quantile(VaRs[,2],c(.025,.975))
+
+#standard error
+sd(VaRs[,1])
+sd(VaRs[,2])
+
+#ES and VaR for Tangency Portfolio
+#Calculating the vector of returns based on this weight
+newAMZ<-Project_Data$Amazon*weights[ind, 1]
+newWMT<-Project_Data$Walmart*weights[ind, 2]
+newHD<-Project_Data$`Home Depot`*weights[ind, 3]
+newTGT<-Project_Data$Target*weights[ind, 4]
+newCOST<-Project_Data$CostCo*weights[ind, 5]
+newBBY<-Project_Data$BestBuy*weights[ind, 6]
+newLOW<-Project_Data$Lowes*weights[ind, 7]
+newEL<-Project_Data$`Estee Lauder`*weights[ind, 8]
+newULTA<-Project_Data$Ulta*weights[ind, 9]
+newLVMH<-Project_Data$LVMH*weights[ind, 10]
+newKER<-Project_Data$Kering*weights[ind, 11]
+newHM<-Project_Data$`H&M`*weights[ind, 12]
+newRICH<-Project_Data$Richemont*weights[ind, 13]
+newCAPR<-Project_Data$Capri*weights[ind, 14]
+newFR<-Project_Data$`Fast Retailing`*weights[ind, 15]
+
+portfolio_return <- cbind(newAMZ,newWMT,newHD,newTGT,newCOST,newBBY,newLOW,newEL,newULTA,newLVMH,newKER,newHM,newRICH,newCAPR,newFR)
+portfolio_return_vector <- rowSums(portfolio_return)
+
+
+#Finding the nonparametric VaR and ES of the tangency portfolio
+alpha <- 0.05  
+q <- as.numeric(quantile(portfolio_return_vector, alpha))
+VaR_nonp <- -100000 * q
+IEVaR <- (portfolio_return_vector < q)
+sum(IEVaR)
+ES_nonp <- -100000 * sum(portfolio_return_vector * IEVaR) / sum(IEVaR)
+options(digits = 5)
+VaR_nonp
+ES_nonp
+
+
+
+#Bootstrap CI and Standard Errors for Portfolio
+B = 5000
+VaRs=matrix(0,nrow=B,ncol=2)
+for (i in (1:B))
+{
+  returns_b = sample(portfolio_return_vector,1000,replace=TRUE)
+  q_b = as.numeric(quantile(returns_b,.05))
+  VaR_nonp_b = -100000*q_b
+  IEVaR_b = (returns_b < q_b)
+  ES_nonp_b = -100000 * sum(returns_b*IEVaR_b) / sum(IEVaR_b)
+  
+
+  VaRs[i,]=c(VaR_nonp_b,ES_nonp_b)
+}
+
+#confidence interval 1 is var 2 is ES
+quantile(VaRs[,1],c(.025,.975))
+quantile(VaRs[,2],c(.025,.975))
+
+#standard error
+sd(VaRs[,1])
+sd(VaRs[,2])
+
+```
+
+
+
+Principal Component Analysis
+```{r setup, include=FALSE}
+library(ggfortify)
+library(ggplot2)
+df=data.frame(Project_Data)
+pca = prcomp(df, scale = TRUE)
+summary(pca)
+autoplot(pca, data=Project_Data, loadings=TRUE, loadings.label=TRUE)
+autoplot(pca, data=Project_Data, loadings=TRUE,loadings.label=TRUE, x=2, y=3)
+autoplot(pca, data=Project_Data, loadings=TRUE,loadings.label=TRUE, x=3, y=4)
+autoplot(pca, data=Project_Data, loadings=TRUE,loadings.label=TRUE, x=4, y=5)
+autoplot(pca, data=Project_Data, loadings=TRUE,loadings.label=TRUE, x=5, y=6)
+autoplot(pca, data=Project_Data, loadings=TRUE,loadings.label=TRUE, x=6, y=7)
+summary(pca)
+
+#Scree Graph
+S <- cov(Project_Data)
+s.eigen <- eigen(S)
+s.eigen
+
+plot(s.eigen$values, xlab = 'Component Number', ylab = 'Eigenvalue', main = 'Scree Graph')
+lines(s.egien$values)
+
+
+```
+
+Statistical Factor Model: Factor Analysis
+```{r setup, include=FALSE}
+fact = factanal(Project_Data, factors = 3)
+fact = factanal(Project_Data, factors = 4)
+fact = factanal(Project_Data, factors = 2)
+```
+
+
+Risk Management:
+Parametric VaR and ES
+```{r setup, include=FALSE}
+
+ 
+res <- fitdistr(AMZ, 't') #ask about the other way
+res
+#t-distribution 9.7
+S = 100000
+alpha = 0.05
+mu <- res$estimate['m']
+lambda <- res$estimate['s']
+nu = res$estimate['df']
+qt(alpha, df=nu)
+dt(qt(alpha, df=nu), df=nu)
+
+Finv = mu + lambda *qt(alpha, df=nu)
+VaR = -S*Finv
+options(digits = 7)
+VaR
+
+den = dt(qt(alpha, df=nu), df=nu)
+ES = S * (-mu + lambda*(den/alpha)*(nu+qt(alpha, df=nu)^2)/(nu-1))
+ES
+
+
+alpha = .05
+q = as.numeric(quantile(WMT,alpha))
+VaR = -100000*(mean(WMT)+ sd(WMT)* qnorm(alpha))
+VaR
+ES = 100000 * (-mean(WMT)+sd(WMT)*dnorm(qnorm(.05))/.05)
+ES
+
+alpha = .05
+q = as.numeric(quantile(HD,alpha))
+VaR = -100000*(mean(HD)+ sd(HD)* qnorm(alpha))
+VaR
+ES = 100000 * (-mean(HD)+sd(HD)*dnorm(qnorm(.05))/.05)
+ES
+
+res <- fitdistr(TGT, 't') 
+res
+
+#t-distribution 15 
+S = 100000
+alpha = 0.05
+mu <- res$estimate['m']
+lambda <- res$estimate['s']
+nu = res$estimate['df']
+qt(alpha, df=nu)
+dt(qt(alpha, df=nu), df=nu)
+
+Finv = mu + lambda *qt(alpha, df=nu)
+VaR = -S*Finv
+options(digits = 7)
+VaR
+
+den = dt(qt(alpha, df=nu), df=nu)
+ES = S * (-mu + lambda*(den/alpha)*(nu+qt(alpha, df=nu)^2)/(nu-1))
+ES
+
+#Normal
+alpha = .05
+q = as.numeric(quantile(COST,alpha))
+VaR = -100000*(mean(COST)+ sd(COST)* qnorm(alpha))
+VaR
+ES = 100000 * (-mean(COST)+sd(COST)*dnorm(qnorm(.05))/.05)
+ES
+
+#Normal
+alpha = .05
+q = as.numeric(quantile(BBY,alpha))
+VaR = -100000*(mean(BBY)+ sd(BBY)* qnorm(alpha))
+VaR
+ES = 100000 * (-mean(BBY)+sd(BBY)*dnorm(qnorm(.05))/.05)
+ES
+
+#Normal
+alpha = .05
+q = as.numeric(quantile(LOW,alpha))
+VaR = -100000*(mean(LOW)+ sd(LOW)* qnorm(alpha))
+VaR
+ES = 100000 * (-mean(LOW)+sd(LOW)*dnorm(qnorm(.05))/.05)
+ES
+
+#Normal
+alpha = .05
+q = as.numeric(quantile(EL,alpha))
+VaR = -100000*(mean(EL)+ sd(EL)* qnorm(alpha))
+VaR
+ES = 100000 * (-mean(EL)+sd(EL)*dnorm(qnorm(.05))/.05)
+ES
+
+
+res <- fitdistr(ULTA, 't') #ask about the other way
+res
+#t-distribution 15 
+S = 100000
+alpha = 0.05
+mu <- res$estimate['m']
+lambda <- res$estimate['s']
+nu = res$estimate['df']
+qt(alpha, df=nu)
+dt(qt(alpha, df=nu), df=nu)
+
+Finv = mu + lambda *qt(alpha, df=nu)
+VaR = -S*Finv
+options(digits = 7)
+VaR
+
+den = dt(qt(alpha, df=nu), df=nu)
+ES = S * (-mu + lambda*(den/alpha)*(nu+qt(alpha, df=nu)^2)/(nu-1))
+ES
+
+#Normal
+alpha = .05
+q = as.numeric(quantile(LVMH,alpha))
+VaR = -100000*(mean(LVMH)+ sd(LVMH)* qnorm(alpha))
+VaR
+ES = 100000 * (-mean(LVMH)+sd(LVMH)*dnorm(qnorm(.05))/.05)
+ES
+
+#Normal
+alpha = .05
+q = as.numeric(quantile(KER,alpha))
+VaR = -100000*(mean(KER)+ sd(KER)* qnorm(alpha))
+VaR
+ES = 100000 * (-mean(KER)+sd(KER)*dnorm(qnorm(.05))/.05)
+ES
+
+
+res <- fitdistr(HM, 't') #ask about the other way
+res
+
+#t-distribution 15 
+S = 100000
+alpha = 0.05
+mu <- res$estimate['m']
+lambda <- res$estimate['s']
+nu = res$estimate['df']
+qt(alpha, df=nu)
+dt(qt(alpha, df=nu), df=nu)
+
+Finv = mu + lambda *qt(alpha, df=nu)
+VaR = -S*Finv
+options(digits = 7)
+VaR
+
+den = dt(qt(alpha, df=nu), df=nu)
+ES = S * (-mu + lambda*(den/alpha)*(nu+qt(alpha, df=nu)^2)/(nu-1))
+ES
+
+#Normal
+alpha = .05
+q = as.numeric(quantile(RICH,alpha))
+VaR = -100000*(mean(RICH)+ sd(RICH)* qnorm(alpha))
+VaR
+ES = 100000 * (-mean(RICH)+sd(RICH)*dnorm(qnorm(.05))/.05)
+ES
+
+#Normal
+alpha = .05
+q = as.numeric(quantile(CAPR,alpha))
+VaR = -100000*(mean(CAPR)+ sd(CAPR)* qnorm(alpha))
+VaR
+ES = 100000 * (-mean(CAPR)+sd(CAPR)*dnorm(qnorm(.05))/.05)
+ES
+
+
+#Normal
+alpha = .05
+q = as.numeric(quantile(FR,alpha))
+VaR = -100000*(mean(FR)+ sd(FR)* qnorm(alpha))
+VaR
+ES = 100000 * (-mean(FR)+sd(FR)*dnorm(qnorm(.05))/.05)
+ES
+
+
+```
+
+Nonparametric VaR and ES: 
+```{r setup, include=FALSE}
+
+alpha <- 0.05  
+q <- as.numeric(quantile(AMZ, alpha))
+VaR_nonp <- -100000 * q
+IEVaR <- (AMZ < q)
+sum(IEVaR)
+ES_nonp <- -100000 * sum(AMZ * IEVaR) / sum(IEVaR)
+options(digits = 5)
+VaR_nonp
+ES_nonp
+
+alpha <- 0.05 
+q <- as.numeric(quantile(WMT, alpha))
+VaR_nonp <- -100000 * q
+IEVaR <- (WMT < q)
+sum(IEVaR)
+ES_nonp <- -100000 * sum(WMT * IEVaR) / sum(IEVaR)
+options(digits = 5)
+VaR_nonp
+ES_nonp
+
+alpha <- 0.05 
+q <- as.numeric(quantile(HD, alpha))
+VaR_nonp <- -100000 * q
+IEVaR <- (HD < q)
+sum(IEVaR)
+ES_nonp <- -100000 * sum(HD * IEVaR) / sum(IEVaR)
+options(digits = 5)
+VaR_nonp
+ES_nonp
+
+alpha <- 0.05 
+q <- as.numeric(quantile(TGT, alpha))
+VaR_nonp <- -100000 * q
+IEVaR <- (TGT < q)
+sum(IEVaR)
+ES_nonp <- -100000 * sum(TGT * IEVaR) / sum(IEVaR)
+options(digits = 5)
+VaR_nonp
+ES_nonp
+
+alpha <- 0.05 
+q <- as.numeric(quantile(COST, alpha))
+VaR_nonp <- -100000 * q
+IEVaR <- (COST < q)
+sum(IEVaR)
+ES_nonp <- -100000 * sum(COST * IEVaR) / sum(IEVaR)
+options(digits = 5)
+VaR_nonp
+ES_nonp
+
+alpha <- 0.05 
+q <- as.numeric(quantile(BBY, alpha))
+VaR_nonp <- -100000 * q
+IEVaR <- (BBY < q)
+sum(IEVaR)
+ES_nonp <- -100000 * sum(BBY * IEVaR) / sum(IEVaR)
+options(digits = 5)
+VaR_nonp
+ES_nonp
+
+alpha <- 0.05 
+q <- as.numeric(quantile(LOW, alpha))
+VaR_nonp <- -100000 * q
+IEVaR <- (LOW < q)
+sum(IEVaR)
+ES_nonp <- -100000 * sum(LOW * IEVaR) / sum(IEVaR)
+options(digits = 5)
+VaR_nonp
+ES_nonp
+
+alpha <- 0.05 
+q <- as.numeric(quantile(EL, alpha))
+VaR_nonp <- -100000 * q
+IEVaR <- (EL < q)
+sum(IEVaR)
+ES_nonp <- -100000 * sum(EL * IEVaR) / sum(IEVaR)
+options(digits = 5)
+VaR_nonp
+ES_nonp
+
+alpha <- 0.05 
+q <- as.numeric(quantile(ULTA, alpha))
+VaR_nonp <- -100000 * q
+IEVaR <- (ULTA < q)
+sum(IEVaR)
+ES_nonp <- -100000 * sum(ULTA * IEVaR) / sum(IEVaR)
+options(digits = 5)
+VaR_nonp
+ES_nonp
+
+alpha <- 0.05 
+q <- as.numeric(quantile(LVMH, alpha))
+VaR_nonp <- -100000 * q
+IEVaR <- (LVMH < q)
+sum(IEVaR)
+ES_nonp <- -100000 * sum(LVMH * IEVaR) / sum(IEVaR)
+options(digits = 5)
+VaR_nonp
+ES_nonp
+
+alpha <- 0.05 
+q <- as.numeric(quantile(KER, alpha))
+VaR_nonp <- -100000 * q
+IEVaR <- (KER < q)
+sum(IEVaR)
+ES_nonp <- -100000 * sum(KER * IEVaR) / sum(IEVaR)
+options(digits = 5)
+VaR_nonp
+ES_nonp
+
+alpha <- 0.05 
+q <- as.numeric(quantile(HM, alpha))
+VaR_nonp <- -100000 * q
+IEVaR <- (HM < q)
+sum(IEVaR)
+ES_nonp <- -100000 * sum(HM * IEVaR) / sum(IEVaR)
+options(digits = 5)
+VaR_nonp
+ES_nonp
+
+alpha <- 0.05 
+q <- as.numeric(quantile(RICH, alpha))
+VaR_nonp <- -100000 * q
+IEVaR <- (RICH < q)
+sum(IEVaR)
+ES_nonp <- -100000 * sum(RICH * IEVaR) / sum(IEVaR)
+options(digits = 5)
+VaR_nonp
+ES_nonp
+
+alpha <- 0.05 
+q <- as.numeric(quantile(CAPR, alpha))
+VaR_nonp <- -100000 * q
+IEVaR <- (CAPR < q)
+sum(IEVaR)
+ES_nonp <- -100000 * sum(CAPR * IEVaR) / sum(IEVaR)
+options(digits = 5)
+VaR_nonp
+ES_nonp
+
+alpha <- 0.05 
+q <- as.numeric(quantile(FR, alpha))
+VaR_nonp <- -100000 * q
+IEVaR <- (FR < q)
+sum(IEVaR)
+ES_nonp <- -100000 * sum(FR * IEVaR) / sum(IEVaR)
+options(digits = 5)
+VaR_nonp
+ES_nonp
+
+
+alpha <- 0.05 
+q <- as.numeric(quantile(MPORT_noNA$Returns, alpha))
+VaR_nonp <- -100000 * q
+IEVaR <- (MPORT_noNA$Returns < q)
+sum(IEVaR)
+ES_nonp <- -100000 * sum(MPORT_noNA$Returns * IEVaR) / sum(IEVaR)
+options(digits = 5)
+VaR_nonp
+ES_nonp
+```
+
+
+Nonparametric Bootstrap SE and CI: for individual assets: replace name for each one to find 
+```{r setup, include=FALSE}
+
+B = 5000
+VaRs=matrix(0,nrow=B,ncol=2)
+for (i in (1:B))
+{
+  returns_b = sample(AMZ,1000,replace=TRUE)
+  q_b = as.numeric(quantile(returns_b,.05))
+  VaR_nonp_b = -100000*q_b
+  IEVaR_b = (returns_b < q_b)
+  ES_nonp_b = -100000 * sum(returns_b*IEVaR_b) / sum(IEVaR_b)
+  
+
+  VaRs[i,]=c(VaR_nonp_b,ES_nonp_b)
+}
+
+#confidence interval 1 is var 2 is ES
+quantile(VaRs[,1],c(.025,.975))
+quantile(VaRs[,2],c(.025,.975))
+
+#standard error
+sd(VaRs[,1])
+sd(VaRs[,2])
+
+```
+
+Copulas
+```{r setup, include=FALSE}
+library(readxl)
+library(copula)
+library(MASS)
+n = length(AMZ)
+
+edata=cbind(rank(AMZ)/(n+1),rank(WMT)/(n+1),rank(HD)/(n+1),rank(TGT)/(n+1),rank(COST)/(n+1),rank(BBY)/(n+1),rank(LOW)/(n+1),rank(EL)/(n+1),rank(ULTA)/(n+1),rank(LVMH)/(n+1),rank(KER)/(n+1),rank(HM)/(n+1),rank(RICH)/(n+1),rank(CAPR)/(n+1),rank(FR)/(n+1))
+
+ncop=normalCopula(param=c(0,0,0,0,0,0,0,0,0,0,
+                          0,0,0,0,0,0,0,0,0,0,
+                          0,0,0,0,0,0,0,0,0,0,
+                          0,0,0,0,0,0,0,0,0,0,
+                          0,0,0,0,0,0,0,0,0,0,
+                          0,0,0,0,0,0,0,0,0,0,
+                          0,0,0,0,0,0,0,0,0,0,
+                          0,0,0,0,0,0,0,0,0,0,
+                          0,0,0,0,0,0,0,0,0,0,
+                          0,0,0,0,0,0,0,0,0,0,
+                          0,0,0,0,0), dim=15, dispstr="un")
+fit1=fitCopula(data=edata, copula=ncop, method="ml")
+AIC(fit1)
+
+tcop=tCopula(param=c(0,0,0,0,0,0,0,0,0,0,
+                          0,0,0,0,0,0,0,0,0,0,
+                          0,0,0,0,0,0,0,0,0,0,
+                          0,0,0,0,0,0,0,0,0,0,
+                          0,0,0,0,0,0,0,0,0,0,
+                          0,0,0,0,0,0,0,0,0,0,
+                          0,0,0,0,0,0,0,0,0,0,
+                          0,0,0,0,0,0,0,0,0,0,
+                          0,0,0,0,0,0,0,0,0,0,
+                          0,0,0,0,0,0,0,0,0,0,
+                          0,0,0,0,0), dim=15, dispstr="un")
+fit2=fitCopula(data=edata, copula=tcop, method="ml")
+AIC(fit2)
+
+gcop=archmCopula(family="gumbel", dim=15, param=2)
+fit3=fitCopula(data=edata, copula=gcop, method="ml")
+AIC(fit3)
+
+clcop=archmCopula(family="clayton", dim=15, param=2)
+fit4=fitCopula(data=edata, copula=clcop, method="ml")
+AIC(fit4)
+
+library(fGarch)
+```
+
+Plot correlation matrix and scatter plot, comment on bivariate shape: 
+```{r}
+cor(Project_Data)
+par(mfrow=c(2, 2))
+regression <- lm(formula= LVMH ~ KER, data=Project_Data)
+plot(LVMH, KER, xlab= 'LVMH', ylab= 'KER', main='Relationship between Kering and LVMH')
+abline(regression)
+
+corr <- cor (LVMH, KER, method= c("pearson"))
+text(149, 250, bquote(italic('r=')~.(round(corr, 3))), adj=0, cex=.8)
+
+plot(LVMH,RICH)
+plot(HD, LOW)
+plot(HD, COST)
+
+```
